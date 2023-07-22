@@ -1,5 +1,6 @@
 package com.dhruvesh.khidake.DhruveshTest;
 
+import com.dhruvesh.khidake.DhruveshTest.GetRequest.GetRequest;
 import io.netty.handler.codec.http.HttpHeaderValues;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.AbstractVerticle;
@@ -46,6 +47,7 @@ public class RestApi extends AbstractVerticle {
 
 
     AllData.attach(router,pg,vertx);
+    GetRequest.attach(router,pg,vertx);
 
 
 
