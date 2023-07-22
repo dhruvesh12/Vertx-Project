@@ -8,7 +8,11 @@ public class GetRequest {
   public static void attach(Router router, PgPool pg, Vertx vertx) {
 
     router.get("/getRequest").handler(ctx->{
-      var result = "Hello World, This is Dhruvesh World";
+
+
+
+      var result = "It is Not Hello World, It is Hello Earth";
+
       ctx.response()
         .end(result);
     });

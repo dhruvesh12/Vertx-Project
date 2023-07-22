@@ -8,10 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Vertx-Project" />
+        <module name="user2" />
         <module name="DhruveshTest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="user2" target="11" />
       <module name="Vertx-Project" target="11" />
     </bytecodeTargetLevel>
   </component>
