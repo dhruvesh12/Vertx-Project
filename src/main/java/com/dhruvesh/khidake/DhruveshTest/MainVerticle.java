@@ -22,7 +22,7 @@ public class MainVerticle extends AbstractVerticle {
 
 
     vertx.exceptionHandler(error->{
-      Log.error("Something Went Wrong With Main {}",error.getCause());
+      Log.error("Something Went Wrong 2 With Main {}",error.getCause());
     });
 
     vertx
