@@ -11,7 +11,9 @@ public class GetRequest {
 
 
 
+
       var result = "It is Not Hello World, It is Hello Earth";
+
 
       ctx.response()
         .end(result);
