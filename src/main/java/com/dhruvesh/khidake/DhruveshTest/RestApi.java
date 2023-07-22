@@ -1,6 +1,7 @@
 package com.dhruvesh.khidake.DhruveshTest;
 
 import com.dhruvesh.khidake.DhruveshTest.GetRequest.GetRequest;
+import com.dhruvesh.khidake.DhruveshTest.PostResponse.PostResponse;
 import io.netty.handler.codec.http.HttpHeaderValues;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.vertx.core.AbstractVerticle;
@@ -38,16 +39,17 @@ public class RestApi extends AbstractVerticle {
   private void StartServer(Promise<Void> startPromise) {
 
     final int[] num = {0};
-
+    final PgPool pg = new MongoConnection().getPgPool();
 
 
     final Router router = Router.router(vertx);
 
-    PgPool pg = getPgPool();
+
 
 
     AllData.attach(router,pg,vertx);
     GetRequest.attach(router,pg,vertx);
+    PostResponse.attach(router,pg,vertx);
 
 
 
@@ -67,18 +69,18 @@ public class RestApi extends AbstractVerticle {
     });
   }
 
-  private PgPool getPgPool() {
-    final var pool = new PgConnectOptions()
-      .setPort(5432)
-      .setHost("localhost")
-      .setDatabase("Students")
-      .setUser("postgres")
-      .setPassword("yash12345");
-
-    final var poolOption = new PoolOptions()
-      .setMaxSize(4);
-
-    PgPool pg = PgPool.pool(vertx,pool,poolOption);
-    return pg;
-  }
+//  private PgPool getPgPool() {
+//    final var pool = new PgConnectOptions()
+//      .setPort(5432)
+//      .setHost("localhost")
+//      .setDatabase("Students")
+//      .setUser("postgres")
+//      .setPassword("yash12345");
+//
+//    final var poolOption = new PoolOptions()
+//      .setMaxSize(4);
+//
+//    PgPool pg = PgPool.pool(vertx,pool,poolOption);
+//    return pg;
+//  }
 }
